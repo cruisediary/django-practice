@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "3.5"
+
+env:
+  - DJANGO=Django==1.10.4
+
+install:
+  - pip install -q $DJANGO
+
+before_script:
+  - python manage.py makemigrations
+
+script:
+  - python manage.py migrate -v 3
+  - python manage.py test -v 3
