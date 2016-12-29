@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - "3.5"
+
+env:
+  global:
+    - BUILD_ON_TRAVIS=true
+
+install:
+  - pip install -r requirements.txt
+  - pip install -q Django==$DJANGO_VERSION
+
+before_script:
+  - python manage.py makemigrations
+
+script:
+  - python manage.py migrate -v 3
+  - python manage.py test -v 3
