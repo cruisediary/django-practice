@@ -4,12 +4,12 @@ python:
   - "3.5"
 
 env:
-  - DJANGO_VERSION=1.10.4
+  - DJANGO=1.10.4
   global:
     - BUILD_ON_TRAVIS=true
 
 install:
-  - pip install -q Django==1.10.4
+  - pip install -q Django==$DJANGO
 
 before_script:
   - python manage.py makemigrations
