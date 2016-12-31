@@ -17,3 +17,6 @@ class BlogTest(StaticLiveServerTestCase):
     def test_blog_app(self):
         self.browser.get('http://127.0.0.1:8000/blog/')
 
+        self.browser.find_element_by_xpath("//*[contains(text(), Blog List)]")
+
+
