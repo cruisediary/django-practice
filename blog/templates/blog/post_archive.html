@@ -1,7 +1,7 @@
 <h2> Post Archives until {% now "N d, Y" %} </h2>
 
 <ul>
-    {% for date in date_list  %}
+    {% for date in date_list %}
         <li style="display: inline;">
             <a href="{% url 'blog:post_year_archive' date|date:'Y' %}">Year-{{ date|date:"Y" }}</a>
         </li>
@@ -11,7 +11,7 @@
 <div>
     <ul>
         {% for post in object_list %}
-            <li> {{ post.modify_date|date:"Y-m-d" }} <a href="object.get_absolute_url">{{ object.title }}</a></li>
+            <li> {{ post.modify_date|date:"Y-m-d" }} <a href="{{ post.get_absolute_url  }}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
 </div>

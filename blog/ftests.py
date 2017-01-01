@@ -19,4 +19,8 @@ class BlogTest(StaticLiveServerTestCase):
 
         self.browser.find_elements_by_xpath("//*[contains(text(), 'Blog List')]")
 
+    def test_blog_archive(self):
+        self.browser.get('http://127.0.0.1:8000/blog/archive/')
+        self.browser.find_elements_by_xpath("//*[contains(text(), 'Post Archives until')]")
+
 
