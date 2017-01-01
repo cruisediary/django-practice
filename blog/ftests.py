@@ -23,4 +23,10 @@ class BlogTest(StaticLiveServerTestCase):
         self.browser.get('http://127.0.0.1:8000/blog/archive/')
         self.browser.find_elements_by_xpath("//*[contains(text(), 'Post Archives until')]")
 
+    def test_blog_year_archive(self):
+        self.browser.get('http://127.0.0.1:8000/blog/2017/')
+        self.browser.find_elements_by_xpath("//*[contains(text(), 'Post Archives for')]")
 
+    def test_blog_month_archive(self):
+        self.browser.get('http://127.0.0.1:8000/blog/2017/jan')
+        self.browser.find_elements_by_xpath("//*[contains(text(), 'Post Archives for')]")
