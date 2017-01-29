@@ -45,11 +45,24 @@ div#footer {
 .maintitle {
     display: table-cell;
     vertical-align: middle;
+    padding-left: 20px;
+    color: #ffc;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.welcome {
+    display: table-cell;
+    vertical-align: middle;
     text-align: right;
     padding-right: 20px;
     color: #ffc;
     font-weight: normal;
     font-size: 12px;
+}
+
+.welcome a:link, .welcome a:visited {
+    color: white;
 }
 
 div#menu a:link, div#menu a:visited {
@@ -63,6 +76,19 @@ div#menu > li {
     border-radius: 25px;
     text-align: center;
     font-weight: bold;
+}
+
+div#menu li ul {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 10px 10px 5px 10px;
+    list-style: none;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: white;
+    z-index: 1;
 }
 
 div#menu li:hover ul {
