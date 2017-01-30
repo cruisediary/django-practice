@@ -1,17 +1,24 @@
-<h1>Post Archives for {{ year|date:"Y" }}</h1>
+{% extends "base.html" %}
 
-<ul>
-    {% for date in date_list %}
-        <li style="display: inline;">
-            <a href="{% url 'blog:post_month_archive' year|date:'Y' date|date:'b' %}">
-                {{ date|date:"F" }}</a></li>
-    {% endfor %}
-</ul>
+{% block title %}post_archive_year.html{% endblock %}
 
-<div>
-    <ul>
-        {% for post in object_list %}
-            <li>{{ post.modify_date|date:"Y-m-d" }}<a href="{{ post.get_absolute_url  }}">{{ post.title }}</a></li>
+{% block content %}
+<div id="content">
+        <h1>Post Archives for {{ year|date:"Y" }}</h1>
+        <ul>
+        {% for date in date_list %}
+            <li style="display: inline;">
+                <a href="{% url 'blog:post_month_archive' year|date:'Y' date|date:'b' %}">
+                    {{ date|date:"F" }}</a></li>
         {% endfor %}
     </ul>
+
+    <div>
+        <ul>
+            {% for post in object_list %}
+                <li>{{ post.modify_date|date:"Y-m-d" }}<a href="{{ post.get_absolute_url  }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
+{% endblock %}
